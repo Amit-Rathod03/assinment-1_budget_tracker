@@ -1,125 +1,229 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Budget Tracker</title>
-</head>
-<body>
-    <header>
-        <h1>Personal Budget Tracker</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#add-expense">Add Entry</a></li>
-                <li><a href="#view-budget">View Budget</a></li>
-            </ul>
-        </nav>
-    </header>
+<!-- 
+  Personal Budget Tracker
+  This HTML file creates a simple personal budget tracker that allows users to input their income and expenses, 
+  categorize them, and view a summary in a table format.
+-->
 
-    <main>
-        <section id="introduction">
-            <h2>Welcome to Your Personal Budget Tracker</h2>
-            <p>This tool helps you manage your monthly expenses by allowing you to input your income and expenses in Indian Rupees, categorize them, and view a summary of your budget.</p>
-        </section>
+<!-- Header Section -->
+<header>
+  <h1>Personal Budget Tracker</h1>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Add Expense</a></li>
+      <li><a href="#">View Budget</a></li>
+    </ul>
+  </nav>
+</header>
 
-        <section id="add-expense">
-            <h2>Add Income/Expense</h2>
-            <form>
-                <label for="amount">Amount (₹):</label>
-                <input type="number" id="amount" name="amount" required step="0.01">
+<!-- Introduction Section -->
+<section>
+  <h1>Welcome to the Personal Budget Tracker</h1>
+  <p>This tracker helps you manage your monthly expenses by allowing you to input your income and expenses, 
+    categorize them, and view a summary in a table format.</p>
+</section>
+<style>
+  * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+  }
 
-                <label for="category">Category:</label>
-                <select id="category" name="category" required>
-                    <option value="">Select a category</option>
-                    <option value="income">Income</option>
-                    <option value="food">Food</option>
-                    <option value="transportation">Transportation</option>
-                    <option value="entertainment">Entertainment</option>
-                    <option value="utilities">Utilities</option>
-                    <option value="other">Other</option>
-                </select>
+  body {
+      background-color: #f4f6f8;
+      color: #333;
+      line-height: 1.6;
+      padding: 0 20px;
+  }
 
-                <label for="date">Date:</label>
-                <input type="date" id="date" name="date" required>
+  header {
+      background-color: #007BFF;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+  }
 
-                <label for="type">Type:</label>
-                <select id="type" name="type" required>
-                    <option value="expense">Expense</option>
-                    <option value="income">Income</option>
-                </select>
+  header h1 {
+      margin-bottom: 10px;
+      font-size: 2.5rem;
+  }
 
-                <button type="submit">Add Entry</button>
-            </form>
-        </section>
+  nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+  }
 
-        <section id="view-budget">
-            <h2>Budget Summary</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Amount</th>
-                        <th>Date</th>
-                        <th>Type</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Income</td>
-                        <td>₹200,000.00</td>
-                        <td>2025-02-01</td>
-                        <td>Income</td>
-                        <td>
-                            <button class="edit-btn">Edit</button>
-                            <button class="delete-btn">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Food</td>
-                        <td>₹15,000.00</td>
-                        <td>2025-02-05</td>
-                        <td>Expense</td>
-                        <td>
-                            <button class="edit-btn">Edit</button>
-                            <button class="delete-btn">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Transportation</td>
-                        <td>₹5,000.00</td>
-                        <td>2025-02-10</td>
-                        <td>Expense</td>
-                        <td>
-                            <button class="edit-btn">Edit</button>
-                            <button class="delete-btn">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Entertainment</td>
-                        <td>₹3,000.00</td>
-                        <td>2025-02-15</td>
-                        <td>Expense</td>
-                        <td>
-                            <button class="edit-btn">Edit</button>
-                            <button class="delete-btn">Delete</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-    </main>
+  nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+  }
 
-    <footer>
-        <p>&copy; 2025 Personal Budget Tracker | Version 1.0</p>
-        <nav>
-            <ul>
-                <li><a href="#privacy">Privacy Policy</a></li>
-                <li><a href="#terms">Terms of Use</a></li>
-            </ul>
-        </nav>
-    </footer>
-</body>
-</html>
+  nav ul li a:hover {
+      text-decoration: underline;
+  }
 
+  main {
+      background: white;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+  }
+
+  h2 {
+      color: #007BFF;
+      margin-bottom: 15px;
+  }
+
+  form {
+      display: grid;
+      gap: 10px;
+  }
+
+  input[type="text"], input[type="date"], select {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  }
+
+  input[type="radio"] {
+      margin: 0 10px 0 0;
+  }
+
+  label {
+      font-weight: bold;
+  }
+
+  button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+  }
+
+  button:hover {
+      background-color: #0056b3;
+  }
+
+  table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+  }
+
+  table, th, td {
+      border: 1px solid #ddd;
+  }
+
+  th, td {
+      padding: 12px;
+      text-align: center;
+  }
+
+  th {
+      background-color: #007BFF;
+      color: white;
+  }
+
+  footer {
+      background-color: #f1f1f1;
+      text-align: center;
+      padding: 10px 0;
+      margin-top: 20px;
+      border-top: 1px solid #ddd;
+  }
+
+  footer a {
+      color: #007BFF;
+      text-decoration: none;
+      margin: 0 10px;
+  }
+
+  footer a:hover {
+      text-decoration: underline;
+  }
+</style>
+
+<!-- Add Income/Expense Section -->
+<section>
+  <h1>Add Income/Expense</h1>
+  <form id="budget-form">
+    <label for="income">Income:</label>
+    <input type="number" id="income" name="income"><br><br>
+    <label for="expense">Expense:</label>
+    <input type="number" id="expense" name="expense"><br><br>
+    <label for="category">Category:</label>
+    <select id="category" name="category">
+      <option value="Food">Food</option>
+      <option value="Transportation">Transportation</option>
+      <option value="Entertainment">Entertainment</option>
+      <option value="Other">Other</option>
+    </select><br><br>
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date"><br><br>
+    <label for="type">Type:</label>
+    <input type="radio" id="income-type" name="type" value="Income">
+    <label for="income-type">Income</label>
+    <input type="radio" id="expense-type" name="type" value="Expense">
+    <label for="expense-type">Expense</label><br><br>
+    <input type="submit" value="Submit">
+  </form>
+</section>
+
+<!-- Budget Summary Section -->
+<section>
+  <h1>Budget Summary</h1>
+  <table id="budget-table">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tbody id="budget-table-body">
+      <!-- Table data will be populated here -->
+    </tbody>
+  </table>
+</section>
+
+<!-- Footer Section -->
+<footer>
+  <p>Personal Budget Tracker v1.0</p>
+  <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+</footer>
+
+<!-- Script to handle form submission and populate table data -->
+<script>
+  const budgetForm = document.getElementById('budget-form');
+  const budgetTableBody = document.getElementById('budget-table-body');
+
+  budgetForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const income = document.getElementById('income').value;
+    const expense = document.getElementById('expense').value;
+    const category = document.getElementById('category').value;
+    const date = document.getElementById('date').value;
+    const type = document.querySelector('input[name="type"]:checked').value;
+
+    const tableRow = document.createElement('tr');
+    tableRow.innerHTML = `
+      <td>${category}</td>
+      <td>${type === 'Income' ? income : expense}</td>
+      <td>${date}</td>
+      <td>${type}</td>
+    `;
+    budgetTableBody.appendChild(tableRow);
+  });
+</script>
